@@ -1,11 +1,19 @@
 import streamlit as st
 
 st.header("Website Name!!")
+st.write("Welcome back user")
 
-side_select = st.sidebar.selectbox("What would you like to do?", ("Tax Advice", "Bookkeeping"))
+st.write("Maybe a graph of some sort for demo, we can use data from kaggle")
+
+side_select = st.sidebar.selectbox(
+                "What would you like to do?", ("Select Option", "Tax Advice", "Bookkeeping")
+                )
 
 if side_select == "Tax Advice":
     st.header("Tax Advice")
+
+if side_select == "Bookkeeping":
+    st.header("Bookkeeping")
 
 # Initialize a list to store messages
     if "messages" not in st.session_state:
