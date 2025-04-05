@@ -1,6 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
-
+import pandas as pd
 
 language= st.selectbox(" Select your preffered language\n"+"Escoge tu lenguage de preferencia", ("English", "Español"))
 if language=="English":
@@ -14,6 +14,13 @@ if language=="English":
         st.title("Tax Advice")
     if side_select=="Book keeping":
         st.title("Book keeping")
+        df1 = pd.read_csv("business.retailsales.csv")
+        df2 = pd.read_csv("Grocery_Inventory_and_Sales_Dataset.csv")
+        st.write(df1[:10])
+        st.button('Record sale')
+        st.write(df2[:7])
+        st.button('Add to inventory')
+        
 # Initialize a list to store messages
         if "messages" not in st.session_state:
             st.session_state["messages"] = []
