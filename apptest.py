@@ -1,4 +1,7 @@
 import streamlit as st
+import streamlit.components.v1 as components
+
+st.set_page_config(page_title="Website Name", layout="wide")
 
 st.header("Website Name!!")
 
@@ -6,8 +9,9 @@ side_select = st.sidebar.selectbox("What would you like to do?", ("Tax Advice", 
 
 if side_select == "Tax Advice":
     st.header("Tax Advice")
-
-# Initialize a list to store messages
+    st.write("Use the chatbot in the corner to ask any tax related questions!")
+    
+""" # Initialize a list to store messages
     if "messages" not in st.session_state:
         st.session_state["messages"] = []
 
@@ -32,4 +36,13 @@ if side_select == "Tax Advice":
         #  Simulate a response (replace with your logic)
         st.session_state["messages"].append({"name": "assistant", "content": "This is a response."})
         with st.chat_message("assistant"):
-            st.write("This is a response.")
+            st.write("This is a response.") """
+
+    # ---- Inject Zapier Chatbot ---- #
+    components.html(
+    """
+    <script async type="module" src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js"></script>
+    <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm94g0tw4000bgpqe8cnlyjcq'></zapier-interfaces-chatbot-embed>
+    """,
+    height=0,
+    )
